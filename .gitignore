@@ -1,0 +1,7 @@
+.cache
+dist
+node_module
+vendor
+/wp
+/wp-content
+/wp-config.php

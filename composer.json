@@ -1,0 +1,25 @@
+{
+    "name": "etudiant/wp-install-template",
+    "description": "Template wp",
+    "repositories":[
+        {
+          "type":"composer",
+          "url":"https://wpackagist.org",
+          "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+        }
+    ],
+    "authors": [
+        {
+            "name": "Jean Weil",
+            "email": "jean.weil@protonmail.com"
+        }
+    ],
+    "extra": {
+        "wordpress-install-dir": "wp"
+    },
+    "require": {
+        "johnpbloch/wordpress": "^5.5",
+        "wpackagist-theme/twentytwenty": "^1.5",
+        "wpackagist-theme/twentyfifteen": "^2.7"
+    }
+}

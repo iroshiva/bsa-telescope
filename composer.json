@@ -20,6 +20,24 @@
     "require": {
         "johnpbloch/wordpress": "^5.5",
         "wpackagist-theme/twentytwenty": "^1.5",
-        "wpackagist-theme/twentyfifteen": "^2.7"
+        "wpackagist-theme/twentyfifteen": "^2.7",
+        "wpackagist-plugin/query-monitor": "^3.6",
+        "wpackagist-plugin/show-current-template": "^0.3.4",
+        "wpackagist-plugin/wp-rest-user": "^1.4",
+        "wpackagist-plugin/jwt-auth": "^1.4",
+        "wpackagist-plugin/disable-gutenberg": "^2.3"
+    },
+    "scripts": {
+        "reactivate-plugins": [
+            "wp plugin deactivate --all",
+            "wp plugin activate --all"
+        ],
+        "permissions": [
+            "sudo chown -R $USER:www-data .",
+            "sudo find . -type f -exec chmod 664 {} +",
+            "sudo find . -type d -exec chmod 775 {} +",
+            "sudo chmod 644 .htaccess"
+        ],
+        "install-plugin": "cd wp-content/plugins/ocooking && composer dump-autoload"
     }
 }

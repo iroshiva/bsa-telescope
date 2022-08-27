@@ -1,5 +1,5 @@
 {
-    "name": "etudiant/wp-install-template",
+    "name": "wp/starter_install",
     "description": "Template wp",
     "repositories":[
         {

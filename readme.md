@@ -1,1 +1,0 @@
-http://localhost/wp-install-template/

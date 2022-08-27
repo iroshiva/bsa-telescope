@@ -18,6 +18,12 @@
  * @package WordPress
  */
 
+ // si pb de mémoire notamment si chargement de photos
+// define( 'WP_MEMORY_LIMIT', '128M' );
+
+// pour maj bo wp
+// define('FS_METHOD', 'direct');
+
 // Je définis l'URL vers la page d'accueil de mon site
 define(
 	'WP_HOME',
@@ -102,6 +108,7 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
+define( 'WP_DEBUG_DISPLAY', false );
 
 /* That's all, stop editing! Happy publishing. */
 

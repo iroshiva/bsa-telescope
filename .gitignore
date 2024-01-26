@@ -3,5 +3,13 @@ dist
 node_module
 vendor
 /wp
-/wp-content
+wp-content/*
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/telescope
+!wp-content/plugins
+wp-content/plugins/*
+!wp-content/plugins/telescope-blocks
 /wp-config.php
+
+wp-errors.log

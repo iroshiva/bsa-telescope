@@ -41,7 +41,7 @@ function block_swiper_posts_render(array $attributes)
         $thumbnail_id = get_post_thumbnail_id($post->ID);
       ?>
         <a href="<?php echo get_permalink($post->ID) ?>" class="swiper-slide card">
-          <?php echo wp_get_attachment_image($thumbnail_id, 'thumbnail', false, array('class' => 'card_image')); ?>
+          <?php echo wp_get_attachment_image($thumbnail_id, 'large', false, array('class' => 'card_image')); ?>
           <h4><?php echo get_the_title($post->ID) ?></h4>
           <p><?php echo get_the_excerpt($post->ID) ?></p>
         </a>

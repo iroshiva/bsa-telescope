@@ -13,7 +13,7 @@ function block_swiper_posts_init()
     return;
   }
 
-  register_block_type(PLUGIN_DIR .  'build/swiper-posts', array(
+  register_block_type(PLUGIN_DIR .  'build/modules/swiper-posts', array(
     'render_callback' => 'block_swiper_posts_render'
   ));
 }

@@ -28,21 +28,34 @@ function block_swiper_posts_render(array $attributes)
 
   $posts = get_posts($args);
 
-  if (count($posts) == 0) {
-    return "<p>Pas d'article</p>";
-  }
+  ob_start();
+?>
+  <div class="container swiper swiper-posts">
+    <?php if (count($posts) == 0) { ?>
+      <p>Pas d'article</p>
+    <?php } ?>
 
-  $markup = '<ul class="wp-block-capitainewp-dynamic">';
+    <div class="swiper-wrapper">
 
-  foreach ($posts as $post) {
+      <?php foreach ($posts as $post) {
+        $thumbnail_id = get_post_thumbnail_id($post->ID);
+      ?>
+        <a href="<?php echo get_permalink($post->ID) ?>" class="swiper-slide card">
+          <?php echo wp_get_attachment_image($thumbnail_id, 'thumbnail', false, array('class' => 'card_image')); ?>
+          <h4><?php echo get_the_title($post->ID) ?></h4>
+          <p><?php echo get_the_excerpt($post->ID) ?></p>
+        </a>
+      <?php } ?>
+    </div>
 
-    $markup .= sprintf(
-      '<li><a href="%1$s">%2$s</a></li>',
-      esc_url(get_permalink($post->ID)),
-      esc_html(get_the_title($post->ID))
-    );
-  }
-  $markup .= '</ul>';
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+<?php
+  $outup = ob_get_contents();
 
-  return $markup;
+  ob_end_clean();
+
+  return $outup;
 }

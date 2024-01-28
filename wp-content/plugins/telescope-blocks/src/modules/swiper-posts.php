@@ -7,20 +7,20 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function block_posts_list_init()
+function block_swiper_posts_init()
 {
   if (!function_exists('register_block_type')) {
     return;
   }
 
-  register_block_type(PLUGIN_DIR .  'build/posts-block', array(
-    'render_callback' => 'block_posts_list_render'
+  register_block_type(PLUGIN_DIR .  'build/swiper-posts', array(
+    'render_callback' => 'block_swiper_posts_render'
   ));
 }
-add_action('init', 'block_posts_list_init');
+add_action('init', 'block_swiper_posts_init');
 
 // fonction callback pour afficher le bloc en front
-function block_posts_list_render(array $attributes)
+function block_swiper_posts_render(array $attributes)
 {
   $args = [
     'posts_per_page' => 3,
@@ -29,7 +29,7 @@ function block_posts_list_render(array $attributes)
   $posts = get_posts($args);
 
   if (count($posts) == 0) {
-    return '<p>Pas d’article</p>';
+    return "<p>Pas d'article</p>";
   }
 
   $markup = '<ul class="wp-block-capitainewp-dynamic">';

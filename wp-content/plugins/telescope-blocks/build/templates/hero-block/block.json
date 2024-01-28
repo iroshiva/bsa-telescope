@@ -9,20 +9,17 @@
   "description": "En-tête de page",
   "supports": {
     "html": false,
-    "jsx": true
+    "jsx": true,
+    "align": [
+      "full",
+      "wide"
+    ]
   },
   "keywords": [
     "hero",
     "en-tête"
   ],
   "textdomain": "telescope-blocks",
-  "attributes": {
-    "content": {
-      "type": "string",
-      "source": "html",
-      "selector": "p"
-    }
-  },
   "example": {
     "attributes": {
       "content": "Hello world"

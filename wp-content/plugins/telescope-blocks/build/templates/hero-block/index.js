@@ -54,19 +54,50 @@ __webpack_require__.r(__webpack_exports__);
 function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
 
-  // Liste des blocs autorisés
-  const ALLOWED_BLOCKS = ["core/image", "core/heading", "core/paragraph"];
-
   // Template de blocs
   const BASE_TEMPLATE = [["core/cover", {
     level: 2,
     content: "Mon titre"
-  }, [["telescope-blocks/hero-content-block"]]]];
+  }, [["telescope-blocks/hero-content-block"]]
+  // [
+  // 	[
+  // 		"core/heading",
+  // 		{
+  // 			level: 2,
+  // 			content: "Mon titre",
+  // 			placeholder: "Mon titre",
+  // 			textAlign: "center",
+  // 		},
+  // 	],
+  // 	[
+  // 		"core/paragraph",
+  // 		{
+  // 			content: "Mon paragraphe",
+  // 			placeholder: "Mon paragraphe",
+  // 			align: "center",
+  // 		},
+  // 	],
+  // 	[
+  // 		"core/buttons",
+  // 		{
+  // 			align: "center",
+  // 			layout: { type: "flex", justifyContent: "center" },
+  // 		},
+  // 		[
+  // 			[
+  // 				"core/button",
+  // 				{
+  // 					placeholder: "Texte du bouton",
+  // 					text: "Texte du bouton",
+  // 				},
+  // 			],
+  // 		],
+  // 	],
+  // ],
+  ]];
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks
-  // allowedBlocks={ALLOWED_BLOCKS}
-  , {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     template: BASE_TEMPLATE // Le template de base
     ,
     templateLock: "all" // Empêcher l'ajout de nouveaux blocs
@@ -240,7 +271,7 @@ module.exports = window["wp"]["i18n"];
   \*********************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"telescope-blocks/hero-block","version":"0.1.0","title":"Hero","category":"telescope","icon":"smiley","description":"En-tête de page","supports":{"html":false,"jsx":true},"keywords":["hero","en-tête"],"textdomain":"telescope-blocks","attributes":{"content":{"type":"string","source":"html","selector":"p"}},"example":{"attributes":{"content":"Hello world"}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"telescope-blocks/hero-block","version":"0.1.0","title":"Hero","category":"telescope","icon":"smiley","description":"En-tête de page","supports":{"html":false,"jsx":true,"align":["full","wide"]},"keywords":["hero","en-tête"],"textdomain":"telescope-blocks","example":{"attributes":{"content":"Hello world"}},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

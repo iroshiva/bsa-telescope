@@ -11,7 +11,11 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import {
+	useBlockProps,
+	InnerBlocks,
+	useSetting,
+} from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,11 +34,14 @@ import "./editor.scss";
  * @return {Element} Element to render.
  */
 export default function Edit({ className, attributes, setAttributes }) {
+	const isEnabled = useSetting("typography.fontStyle");
 	const blockProps = useBlockProps({
 		className: "hero__content",
 	});
 
 	setAttributes({ blockClassName: blockProps.className });
+
+	console.log(isEnabled);
 
 	// Liste des blocs autorisés
 	const ALLOWED_BLOCKS = ["core/paragraph", "core/buttons"];
@@ -48,6 +55,7 @@ export default function Edit({ className, attributes, setAttributes }) {
 				content: "Mon titre",
 				placeholder: "Mon titre",
 				textAlign: "center",
+				lock: { move: true, remove: true },
 			},
 		],
 		[
@@ -56,6 +64,7 @@ export default function Edit({ className, attributes, setAttributes }) {
 				content: "Mon paragraphe",
 				placeholder: "Mon paragraphe",
 				align: "center",
+				lock: { move: true, remove: false },
 			},
 		],
 		[
@@ -63,6 +72,7 @@ export default function Edit({ className, attributes, setAttributes }) {
 			{
 				align: "center",
 				layout: { type: "flex", justifyContent: "center" },
+				lock: { move: true, remove: false },
 			},
 			[
 				[
@@ -81,6 +91,7 @@ export default function Edit({ className, attributes, setAttributes }) {
 			<InnerBlocks
 				allowedBlocks={ALLOWED_BLOCKS}
 				template={BASE_TEMPLATE} // Le template de base
+				templateLock={false}
 			/>
 		</div>
 	);

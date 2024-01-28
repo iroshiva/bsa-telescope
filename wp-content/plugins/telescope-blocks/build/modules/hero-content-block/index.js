@@ -56,12 +56,14 @@ function Edit({
   attributes,
   setAttributes
 }) {
+  const isEnabled = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useSetting)("typography.fontStyle");
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: "hero__content"
   });
   setAttributes({
     blockClassName: blockProps.className
   });
+  console.log(isEnabled);
 
   // Liste des blocs autorisés
   const ALLOWED_BLOCKS = ["core/paragraph", "core/buttons"];
@@ -71,16 +73,28 @@ function Edit({
     level: 2,
     content: "Mon titre",
     placeholder: "Mon titre",
-    textAlign: "center"
+    textAlign: "center",
+    lock: {
+      move: true,
+      remove: true
+    }
   }], ["core/paragraph", {
     content: "Mon paragraphe",
     placeholder: "Mon paragraphe",
-    align: "center"
+    align: "center",
+    lock: {
+      move: true,
+      remove: false
+    }
   }], ["core/buttons", {
     align: "center",
     layout: {
       type: "flex",
       justifyContent: "center"
+    },
+    lock: {
+      move: true,
+      remove: false
     }
   }, [["core/button", {
     placeholder: "Texte du bouton",
@@ -91,6 +105,8 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     allowedBlocks: ALLOWED_BLOCKS,
     template: BASE_TEMPLATE // Le template de base
+    ,
+    templateLock: false
   }));
 }
 

@@ -32,9 +32,6 @@ import "./editor.scss";
 export default function Edit(props) {
 	const blockProps = useBlockProps();
 
-	// Liste des blocs autorisés
-	const ALLOWED_BLOCKS = ["core/image", "core/heading", "core/paragraph"];
-
 	// Template de blocs
 	const BASE_TEMPLATE = [
 		[
@@ -44,13 +41,47 @@ export default function Edit(props) {
 				content: "Mon titre",
 			},
 			[["telescope-blocks/hero-content-block"]],
+			// [
+			// 	[
+			// 		"core/heading",
+			// 		{
+			// 			level: 2,
+			// 			content: "Mon titre",
+			// 			placeholder: "Mon titre",
+			// 			textAlign: "center",
+			// 		},
+			// 	],
+			// 	[
+			// 		"core/paragraph",
+			// 		{
+			// 			content: "Mon paragraphe",
+			// 			placeholder: "Mon paragraphe",
+			// 			align: "center",
+			// 		},
+			// 	],
+			// 	[
+			// 		"core/buttons",
+			// 		{
+			// 			align: "center",
+			// 			layout: { type: "flex", justifyContent: "center" },
+			// 		},
+			// 		[
+			// 			[
+			// 				"core/button",
+			// 				{
+			// 					placeholder: "Texte du bouton",
+			// 					text: "Texte du bouton",
+			// 				},
+			// 			],
+			// 		],
+			// 	],
+			// ],
 		],
 	];
 
 	return (
 		<div {...blockProps}>
 			<InnerBlocks
-				// allowedBlocks={ALLOWED_BLOCKS}
 				template={BASE_TEMPLATE} // Le template de base
 				templateLock="all" // Empêcher l'ajout de nouveaux blocs
 			/>

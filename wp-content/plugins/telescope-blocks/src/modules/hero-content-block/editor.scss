@@ -4,6 +4,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-create-block-telescope-blocks {
-	border: 1px dotted #f00;
+.wp-block-telescope-blocks-hero-content-block {
+	.block-editor-block-list__layout {
+		display: flex;
+		flex-direction: column;
+		row-gap: 32px;
+
+		p {
+			margin: 0;
+		}
+	}
 }

@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Hero",
 	"category": "telescope",
-	"icon": "smiley",
+	"icon": "cover-image",
 	"description": "En-tête de page",
 	"supports": {
 		"html": false,

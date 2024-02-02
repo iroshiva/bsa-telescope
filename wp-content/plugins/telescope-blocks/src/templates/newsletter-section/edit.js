@@ -11,7 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,7 +20,6 @@ import { useBlockProps } from "@wordpress/block-editor";
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import "./editor.scss";
-const { withSelect, select } = wp.data;
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -30,10 +29,44 @@ const { withSelect, select } = wp.data;
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit(props) {
+	const blockProps = useBlockProps();
+
+	// Template de blocs
+	const BASE_TEMPLATE = [
+		[
+			"core/heading",
+			{
+				level: 2,
+				content: "Mon titre",
+				placeholder: "Mon titre",
+				textAlign: "center",
+				lock: { move: true, remove: true },
+			},
+		],
+		[
+			"core/paragraph",
+			{
+				content: "Mon paragraphe",
+				placeholder: "Mon paragraphe",
+				align: "center",
+				lock: { move: true, remove: true },
+			},
+		],
+		[
+			"core/shortcode",
+			{
+				lock: { move: true, remove: true },
+			},
+		],
+	];
+
 	return (
-		<p {...useBlockProps()}>
-			{__("Telescope Blocks – hello from the editor!", "test")}
-		</p>
+		<div {...blockProps}>
+			<InnerBlocks
+				template={BASE_TEMPLATE} // Le template de base
+				templateLock="all" // Empêcher l'ajout de nouveaux blocs
+			/>
+		</div>
 	);
 }

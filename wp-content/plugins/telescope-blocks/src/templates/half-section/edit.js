@@ -11,11 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	InnerBlocks,
-	useSetting,
-} from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -33,63 +29,51 @@ import "./editor.scss";
  *
  * @return {Element} Element to render.
  */
-export default function Edit({ className, attributes, setAttributes }) {
-	const isEnabled = useSetting("typography.fontStyle");
-	const blockProps = useBlockProps({
-		className: "hero__content",
-	});
-
-	setAttributes({ blockClassName: blockProps.className });
-
-	// Liste des blocs autorisés
-	const ALLOWED_BLOCKS = ["core/paragraph", "core/buttons"];
+export default function Edit(props) {
+	const blockProps = useBlockProps();
 
 	// Template de blocs
 	const BASE_TEMPLATE = [
 		[
-			"core/heading",
-			{
-				level: 2,
-				content: "Mon titre",
-				placeholder: "Mon titre",
-				textAlign: "center",
-				lock: { move: true, remove: true },
-			},
-		],
-		[
-			"core/paragraph",
-			{
-				content: "Mon paragraphe",
-				placeholder: "Mon paragraphe",
-				align: "center",
-				lock: { move: true, remove: false },
-			},
-		],
-		[
-			"core/buttons",
-			{
-				align: "center",
-				layout: { type: "flex", justifyContent: "center" },
-				lock: { move: true, remove: false },
-			},
-			[
-				[
-					"core/button",
-					{
-						placeholder: "Texte du bouton",
-						text: "Texte du bouton",
-					},
-				],
-			],
+			"core/media-text",
+			// [["telescope-blocks/half-section-content"]],
+			// [
+			// 	[
+			// 		"core/heading",
+			// 		{
+			// 			level: 2,
+			// 			content: "Mon titre",
+			// 			placeholder: "Mon titre",
+			// 			textAlign: "center",
+			// 			lock: { move: true, remove: true },
+			// 		},
+			// 	],
+			// 	[
+			// 		"core/buttons",
+			// 		{
+			// 			align: "center",
+			// 			layout: { type: "flex", justifyContent: "center" },
+			// 			lock: { move: true, remove: false },
+			// 		},
+			// 		[
+			// 			[
+			// 				"core/button",
+			// 				{
+			// 					placeholder: "Texte du bouton",
+			// 					text: "Texte du bouton",
+			// 				},
+			// 			],
+			// 		],
+			// 	],
+			// ],
 		],
 	];
 
 	return (
 		<div {...blockProps}>
 			<InnerBlocks
-				allowedBlocks={ALLOWED_BLOCKS}
 				template={BASE_TEMPLATE} // Le template de base
-				templateLock={false}
+				// templateLock="all" // Empêcher l'ajout de nouveaux blocs
 			/>
 		</div>
 	);

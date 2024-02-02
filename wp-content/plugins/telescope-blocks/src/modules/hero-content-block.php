@@ -14,16 +14,16 @@ function block_hero_content_init()
   }
 
   register_block_type(PLUGIN_DIR .  'build/modules/hero-content-block', array(
-    'attributes' => [
-      'blockID' => [
-        'type' => 'string',
-        'default' => ''
-      ],
-      'blockClassName' => [
-        'type' => 'string',
-        'default' => ''
-      ],
-    ],
+    // 'attributes' => [
+    //   'blockID' => [
+    //     'type' => 'string',
+    //     'default' => ''
+    //   ],
+    //   'blockClassName' => [
+    //     'type' => 'string',
+    //     'default' => ''
+    //   ],
+    // ],
     'render_callback' => 'block_hero_content_render'
   ));
 }
@@ -32,7 +32,8 @@ add_action('init', 'block_hero_content_init');
 // fonction callback pour afficher le bloc en front
 function block_hero_content_render(array $attributes, $content)
 {
-  $blockClassName = $attributes['blockClassName'];
+  // $blockClassName = $attributes['blockClassName'];
+  // var_dump($blockClassName);
   ob_start();
 ?>
     <?= $content ?>

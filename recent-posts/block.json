@@ -1,23 +1,46 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "telescope-blocks/swiper-posts",
+	"name": "telescope-blocks/recent-posts",
 	"version": "0.1.0",
-	"title": "Articles",
+	"title": "Articles Récents",
 	"category": "telescope",
 	"icon": "smiley",
 	"description": "Récupération des 3 derniers articles",
 	"supports": {
 		"html": false,
-		"jsx": true
+		"jsx": true,
+		"align": ["full", "wide"]
 	},
 	"keywords": ["articles", "posts"],
 	"textdomain": "telescope-blocks",
 	"attributes": {
-		"content": {
+		"SelectedPostType": {
 			"type": "string",
-			"source": "html",
-			"selector": "p"
+			"default": "post"
+		},
+		"PostType": {
+			"type": "object"
+		},
+		"postperpage": {
+			"type": "number",
+			"default": 5
+		},
+		"Order": {
+			"type": "string",
+			"default": "ASC"
+		},
+		"postdate": {
+			"type": "boolean",
+			"default": false
+		},
+		"postcontent": {
+			"type": "boolean",
+			"default": false
+		},
+		"imagesize": {
+			"type": "string",
+			"default": "large"
 		}
 	},
 	"example": {

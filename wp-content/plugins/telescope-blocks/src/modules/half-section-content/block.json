@@ -1,13 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "telescope-blocks/hero-content-block",
+	"name": "telescope-blocks/half-section-content",
 	"version": "0.1.0",
-	"title": "Contenu d'en-tête",
+	"title": "Contenu de la section half",
 	"category": "telescope",
-	"parent": ["telescope-blocks/hero-block"],
 	"icon": "editor-paste-text",
-	"description": "Permet de remplir le contenu d'un bloc d'en-tête avec un titre, paragraphe et bouton",
+	"description": "Permet de remplir le contenu d'une section Half",
 	"supports": {
 		"html": false,
 		"jsx": true,
@@ -22,7 +21,7 @@
 			"allowVerticalAlignment": false
 		}
 	},
-	"keywords": ["contenu", "en-tête"],
+	"keywords": ["contenu", "half"],
 	"textdomain": "telescope-blocks",
 	"example": {
 		"attributes": {

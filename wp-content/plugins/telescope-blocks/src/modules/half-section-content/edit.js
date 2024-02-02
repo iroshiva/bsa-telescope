@@ -34,15 +34,12 @@ import "./editor.scss";
  * @return {Element} Element to render.
  */
 export default function Edit({ className, attributes, setAttributes }) {
-	const isEnabled = useSetting("typography.fontStyle");
-	const blockProps = useBlockProps({
-		className: "hero__content",
-	});
+	const blockProps = useBlockProps();
 
 	setAttributes({ blockClassName: blockProps.className });
 
 	// Liste des blocs autorisés
-	const ALLOWED_BLOCKS = ["core/paragraph", "core/buttons"];
+	// const ALLOWED_BLOCKS = ["core/paragraph", "core/buttons"];
 
 	// Template de blocs
 	const BASE_TEMPLATE = [
@@ -54,15 +51,6 @@ export default function Edit({ className, attributes, setAttributes }) {
 				placeholder: "Mon titre",
 				textAlign: "center",
 				lock: { move: true, remove: true },
-			},
-		],
-		[
-			"core/paragraph",
-			{
-				content: "Mon paragraphe",
-				placeholder: "Mon paragraphe",
-				align: "center",
-				lock: { move: true, remove: false },
 			},
 		],
 		[
@@ -87,9 +75,10 @@ export default function Edit({ className, attributes, setAttributes }) {
 	return (
 		<div {...blockProps}>
 			<InnerBlocks
-				allowedBlocks={ALLOWED_BLOCKS}
+				// allowedBlocks={ALLOWED_BLOCKS}
 				template={BASE_TEMPLATE} // Le template de base
-				templateLock={false}
+				// templateLock={false}
+				templateLock="all"
 			/>
 		</div>
 	);

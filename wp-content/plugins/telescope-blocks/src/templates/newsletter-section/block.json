@@ -1,16 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "telescope-blocks/hero-content-block",
+	"name": "telescope-blocks/newsletter-section",
 	"version": "0.1.0",
-	"title": "Contenu d'en-tête",
+	"title": "Section Newsletter",
 	"category": "telescope",
-	"parent": ["telescope-blocks/hero-block"],
-	"icon": "editor-paste-text",
-	"description": "Permet de remplir le contenu d'un bloc d'en-tête avec un titre, paragraphe et bouton",
+	"icon": "email",
+	"description": "Section qui contient le ofrmulaire d'inscription à la newsletter",
 	"supports": {
 		"html": false,
 		"jsx": true,
+		"align": ["full", "wide"],
 		"alignVertical": true,
 		"alignJustify": true,
 		"layout": {
@@ -22,7 +22,13 @@
 			"allowVerticalAlignment": false
 		}
 	},
-	"keywords": ["contenu", "en-tête"],
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"keywords": ["section", "newsletter"],
 	"textdomain": "telescope-blocks",
 	"example": {
 		"attributes": {

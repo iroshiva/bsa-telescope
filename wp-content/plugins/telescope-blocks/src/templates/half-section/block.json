@@ -1,25 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "telescope-blocks/test",
+	"name": "telescope-blocks/half-section",
 	"version": "0.1.0",
-	"title": "Test",
+	"title": "Section Half",
 	"category": "telescope",
-	"icon": "smiley",
-	"description": "Example block scaffolded with Create Block tool.",
+	"icon": "cover-image",
+	"description": "Section moitié Image, moitié Texte avec titre et boutons",
 	"supports": {
 		"html": false,
-		"jsx": true
+		"jsx": true,
+		"align": ["full", "wide"]
 	},
-	"keywords": ["hero", "en-tête"],
+	"keywords": ["section", "half"],
 	"textdomain": "telescope-blocks",
-	"attributes": {
-		"content": {
-			"type": "string",
-			"source": "html",
-			"selector": "p"
-		}
-	},
 	"example": {
 		"attributes": {
 			"content": "Hello world"

@@ -52,3 +52,14 @@ add_filter('block_categories_all', 'add_custom_category');
 // 	register_block_type(__DIR__ . '/build/1-test/');
 // }
 // add_action('init', 'telescope_blocks_telescope_blocks_block_init');
+
+function block_variation_example_enqueue()
+{
+	wp_enqueue_script(
+		'variation-media-text-script',
+		plugins_url('src/block-variations/media-text.js', __FILE__),
+		array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
+		filemtime(plugin_dir_path(__FILE__) . 'src/block-variations/media-text.js')
+	);
+}
+add_action('enqueue_block_editor_assets', 'block_variation_example_enqueue');

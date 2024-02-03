@@ -1,0 +1,19 @@
+@use "../../utils/variables/colors";
+@use "../../utils/variables/typography";
+@import "../../../../node_modules/rfs/scss";
+
+:root {
+  font-size: 62.5% !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  // Fallback for when there is no custom background color defined.
+  // background: colors.$color__background-body;
+  font-family: typography.$primary;
+  color: colors.$black;
+  @include font-size(1.6rem);
+}

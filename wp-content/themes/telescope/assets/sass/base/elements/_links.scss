@@ -1,0 +1,32 @@
+@use "../../utils/variables/colors";
+
+a {
+  // font-weight: 700;
+  color: colors.$color__link;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  &.link-item {
+    // &:visited {
+    //   color: colors.$color__link-visited;
+    // }
+
+    &:hover,
+    &:focus {
+      opacity: 0.6;
+    }
+
+    &:focus {
+      outline: thin dotted;
+    }
+
+    &:active {
+      color: colors.$blue;
+      font-weight: 700;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "telescope-blocks/newsletter-section",
+	"version": "0.1.0",
+	"title": "Section Newsletter",
+	"category": "telescope",
+	"icon": "email",
+	"description": "Section qui contient le ofrmulaire d'inscription à la newsletter",
+	"supports": {
+		"html": false,
+		"jsx": true,
+		"alignVertical": true,
+		"alignJustify": true,
+		"align": ["full", "wide"],
+		"layout": {
+			"default": {
+				"type": "flex",
+				"justifyContent": "center",
+				"orientation": "vertical"
+			},
+			"allowVerticalAlignment": false,
+			"allowEditing": false
+		}
+	},
+	"keywords": ["section", "newsletter"],
+	"textdomain": "telescope-blocks",
+	"example": {
+		"attributes": {
+			"content": "Hello world"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

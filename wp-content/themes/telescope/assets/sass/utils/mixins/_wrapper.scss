@@ -1,0 +1,20 @@
+@use "../variables/structure";
+
+@mixin wrapper($width: structure.$size-site) {
+  width: 100%;
+  max-width: $width;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media screen and (min-width: structure.$tablet-portrait) and (max-width: (structure.$desktop - 1)) {
+    padding-right: 8rem;
+    padding-left: 8rem;
+  }
+
+  @media screen and (min-width: structure.$desktop) and (max-width: (structure.$big-desktop - 1)) {
+    padding-right: 12rem;
+    padding-left: 12rem;
+  }
+}

@@ -1,0 +1,71 @@
+@use "../../utils/variables/colors";
+
+.swiper-posts {
+  .swiper-wrapper {
+    position: relative;
+    padding: 0 0 10rem 0;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+    position: relative;
+
+    &__link {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+    }
+
+    &__image {
+      border-radius: 20px;
+    }
+
+    &__excerpt {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    &__postdate {
+      font-size: 16px;
+      font-weight: 400;
+      color: colors.$grey-300;
+    }
+  }
+
+  &__swiper-btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: unset;
+    top: 97%;
+    z-index: 100;
+    transition: all 400ms ease-in-out;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+
+    &.swiper-button-prev,
+    &.swiper-button-next {
+      color: colors.$white;
+      background-color: colors.$blue;
+      &:after {
+        font-size: 18px;
+      }
+    }
+
+    &.swiper-button-prev {
+      right: 40px;
+    }
+
+    &.swiper-button-next {
+      right: -20px;
+    }
+
+    &.swiper-button-disabled {
+      color: colors.$black;
+      background-color: colors.$grey-200;
+    }
+  }
+}

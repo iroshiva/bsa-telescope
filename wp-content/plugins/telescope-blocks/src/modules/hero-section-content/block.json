@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "telescope-blocks/hero-section-content",
+	"version": "0.1.0",
+	"title": "Contenu d'en-tête",
+	"category": "telescope",
+	"parent": ["telescope-blocks/hero-section"],
+	"icon": "editor-paste-text",
+	"description": "Permet de remplir le contenu d'un bloc d'en-tête avec un titre, paragraphe et bouton",
+	"supports": {
+		"html": false,
+		"jsx": true,
+		"alignVertical": true,
+		"alignJustify": true,
+		"layout": {
+			"default": {
+				"type": "flex",
+				"justifyContent": "center",
+				"orientation": "vertical"
+			},
+			"allowVerticalAlignment": false
+		}
+	},
+	"keywords": ["contenu", "en-tête"],
+	"textdomain": "telescope-blocks",
+	"example": {
+		"attributes": {
+			"content": "Hello world"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,51 @@
+@use "../../utils/" as *;
+@use "../../utils/variables/colors";
+@use "../../../../node_modules/rfs/scss" as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  clear: both;
+  margin: 0;
+}
+
+// h1 {
+//   // @extend %font-xxl;
+//   // font-weight: 700;
+//   // text-transform: uppercase;
+// }
+
+// h2 {
+//   // @include margin-bottom(3rem);
+//   // margin-bottom: 3rem;
+// }
+
+// h4 {
+// @include font-size(1.8rem);
+// @include margin-bottsom(3.2rem);
+// font-weight: 700;
+// margin-bottom: 3rem;
+// }
+
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   // @extend %font-xl;
+//   // font-weight: 400;
+// }
+
+h1,
+// h2,
+h3,
+// h4,
+h5,
+h6 {
+  &:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}

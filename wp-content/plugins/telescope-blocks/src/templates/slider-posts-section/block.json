@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "telescope-blocks/slider-posts-section",
+	"version": "0.1.0",
+	"title": "Diaporama d'articles",
+	"category": "telescope",
+	"icon": "format-gallery",
+	"description": "Section avec un titre et une section diaporama d'articles sous forme de slider",
+	"supports": {
+		"html": false,
+		"jsx": true,
+		"align": ["full", "wide"],
+		"color": {
+			"text": true,
+			"background": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		},
+		"layout": {
+			"default": {
+				"type": "constrained",
+				"justifyContent": "center",
+				"orientation": "vertical"
+			},
+			"allowVerticalAlignment": false
+		}
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "wide"
+		}
+	},
+	"keywords": ["articles", "diaporama", "slider"],
+	"textdomain": "telescope-blocks",
+	"example": {
+		"attributes": {
+			"content": "Hello world"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

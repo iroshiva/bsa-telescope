@@ -1,0 +1,11 @@
+@use "../../utils/variables/colors";
+
+.form-item {
+  font-size: 2.2rem;
+  margin-bottom: 4rem;
+
+  &__label {
+    background-color: colors.$white;
+    border-radius: 20px;
+  }
+}

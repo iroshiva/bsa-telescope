@@ -5,7 +5,9 @@
 ```sh
 $ composer install
 ```
+
 Installation des dossiers suivants :
+
 - dossier vendor
 - dossier wp
 - dossier wp-content
@@ -18,6 +20,7 @@ Installation des dossiers suivants :
 - renommer en wp-config.php
 
 Mettre les infos concernant :
+
 - WP_HOME
 - db_name
 - db_user
@@ -25,7 +28,7 @@ Mettre les infos concernant :
 
 Mettre les clés et sel
 
-Si besoin : 
+Si besoin :
 
 ```sh
 define( 'WP_MEMORY_LIMIT', '128M' );
@@ -49,4 +52,3 @@ http://localhost:8080/app_name/wp/wp-admin/install.php
 # Accès BO
 
 http://localhost:8080/app_name/admin
-

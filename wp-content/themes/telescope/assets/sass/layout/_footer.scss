@@ -1,0 +1,71 @@
+@use "../../../node_modules/rfs/scss" as *;
+@use "../utils/variables/colors";
+@use "../utils/variables/structure";
+
+.footer {
+  width: 100%;
+  @include padding(8.4rem 15.6rem 8.4rem 11.6rem);
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 2px solid #f4f4f5;
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 8vw;
+
+    .container-links {
+      .title {
+        @include margin-bottom(3.2rem);
+      }
+
+      .nav-items {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+    }
+
+    .container-links--social .nav-items {
+      flex-direction: row;
+      gap: 1.2rem;
+      @include font-size(2.4rem);
+    }
+  }
+}
+
+@media screen and (max-width: (structure.$tablet-portrait)) {
+  .footer {
+    padding: 5.2rem 2rem;
+    flex-direction: column;
+    row-gap: 5.2rem;
+
+    &__links {
+      grid-template-columns: 1fr;
+      row-gap: 5.2rem;
+
+      .container-links {
+        .nav-items {
+          flex-direction: column;
+          gap: 1.6rem;
+        }
+      }
+
+      .container-links--social .nav-items {
+        flex-direction: row;
+        gap: 1.2rem;
+        @include font-size(2.4rem);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: structure.$tablet-portrait) and (max-width: (structure.$desktop - 1)) {
+  .footer {
+    &__links {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 8vw;
+    }
+  }
+}

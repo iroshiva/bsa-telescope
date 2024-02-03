@@ -1,0 +1,50 @@
+@use "../utils" as *;
+@use "../utils/variables/colors";
+@use "../utils/variables/structure";
+@use "../../../node_modules/rfs/scss" as *;
+
+// input[type="button"],
+// input[type="reset"],
+// input[type="submit"],
+.btn {
+  // @extend %font-s;
+  position: relative;
+  color: colors.$white;
+  display: inline-block;
+  max-width: fit-content;
+  @include padding(1.2rem 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 48px;
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.btn--primary {
+  background-color: colors.$color__background-button;
+
+  &:hover {
+    background-color: colors.$white;
+    border-color: colors.$color__background-button;
+    color: colors.$color__background-button;
+  }
+}
+
+.btn--disabled {
+  background-color: colors.$grey-200;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: structure.$tablet-portrait) {
+  .btn-container {
+    gap: 2rem;
+  }
+}

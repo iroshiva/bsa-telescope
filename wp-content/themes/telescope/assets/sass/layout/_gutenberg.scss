@@ -1,0 +1,22 @@
+body
+  .main
+  .is-layout-constrained:where(
+    :not(.alignleft):not(.alignright):not(.alignfull)
+  ) {
+  max-width: var(--wp--style--global--wide-size);
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body
+  .main
+  .is-layout-flex:where(
+    :not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide)
+  ) {
+  max-width: var(--wp--style--global--content-size);
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.wp-block-media-text {
+}

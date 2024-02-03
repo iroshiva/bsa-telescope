@@ -1,0 +1,57 @@
+@use "../../utils/variables/colors";
+@use "../../../../node_modules/rfs/scss" as *;
+
+.form__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 2rem;
+  border: 2px solid #d4d4d8;
+  border-radius: 40px;
+  padding: 1rem;
+  width: fit-content;
+  @include padding(4px 4px 4px 2rem);
+  width: 512px;
+}
+
+.field-holder {
+  position: relative;
+  width: 100%;
+
+  .label {
+    color: #71717a;
+    @include font-size(1.6rem);
+    position: absolute;
+    transform: translateY(-45%);
+    top: 50%;
+    left: 0;
+    color: #71717a;
+  }
+
+  .input {
+    @include font-size(1.6rem);
+    color: colors.$color__text-input;
+
+    border: none;
+    border-radius: 20px;
+
+    &:focus-visible,
+    &:focus {
+      outline: none !important;
+    }
+
+    &:focus + label,
+    // &[value] + label,
+    &:required:user-invalid:not([value=""]) + label,
+    &:required:valid + label {
+      @include padding(0 1rem);
+      background-color: colors.$white;
+      top: -68%;
+      pointer-events: none;
+    }
+  }
+
+  .input {
+    width: 100%;
+  }
+}

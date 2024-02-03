@@ -10,22 +10,17 @@
 	"supports": {
 		"html": false,
 		"jsx": true,
-		"align": ["full", "wide"],
 		"alignVertical": true,
 		"alignJustify": true,
+		"align": ["full", "wide"],
 		"layout": {
 			"default": {
 				"type": "flex",
 				"justifyContent": "center",
 				"orientation": "vertical"
 			},
-			"allowVerticalAlignment": false
-		}
-	},
-	"attributes": {
-		"align": {
-			"type": "string",
-			"default": "wide"
+			"allowVerticalAlignment": false,
+			"allowEditing": false
 		}
 	},
 	"keywords": ["section", "newsletter"],

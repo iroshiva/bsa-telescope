@@ -1,0 +1,169 @@
+///
+/// Generate placeholders for unify and responsive font system.
+///
+
+@use "sass:list";
+@use "sass:map";
+@use "sass:string";
+@use "../variables/structure";
+
+/// list of breakpoints : list<number>
+///
+/// @type list.number
+/// breakpoints in px
+/// mobile-first : breakpoints with min-width
+/// the breakpoints must be sorted in ascending order
+///
+/// @example (0, 992, 1400);
+///
+$font-breakpoints: (0, structure.$tablet-landscape, structure.$desktop);
+
+/// map of the fonts placeholders with their properties
+///
+/// @type map.list.map.number|string
+///
+/// keys map 1 : string
+/// placeholder suffix (result : '%font-[suffix]')
+///
+/// list for the breakpoints $font-breakpoints
+///
+/// keys map 2 : string
+/// accepted key names =
+///    'size:font-size' = number (use rem),
+///    'height:line-height' = number,
+///    'weight:font-weight' = number or string,
+///    'family:font-family' = string,
+///    'first-letter'= string (text-transform values),
+///    'string' = 'string'
+///
+$font-placeholders: (
+  "xs": (
+    (
+      "size": 1.4,
+      "height": 1.25,
+    ),
+  ),
+  "sm": (
+    (
+      "size": 1.6,
+      "height": 1.25,
+    ),
+  ),
+  "s": (
+    (
+      "size": 2,
+      "height": 1.25,
+    ),
+  ),
+  "md": (
+    (
+      "size": 2.2,
+      "height": 1.3,
+    ),
+  ),
+  "lg": (
+    (
+      "size": 2.6,
+      "height": 1.3,
+    ),
+  ),
+  "xl": (
+    (
+      "size": 3,
+      "height": 1.2,
+    ),
+  ),
+  "xxl": (
+    (
+      "size": 3.4,
+      "height": 1.2,
+    ),
+    (
+      "size": 4,
+    ),
+  ),
+);
+
+/// -------------------------------------------------- ///
+/// ---------- Do not change the code below ---------- ///
+/// -------------------------------------------------- ///
+
+/// Take a map and return a list(css) of property
+///
+/// @param $properties map
+///
+@mixin formatted-font-properties($properties) {
+  @each $property-name, $value in $properties {
+    @if type-of($value) == string {
+      $value: string.unquote($value);
+    }
+
+    @if $property-name == "size" {
+      font-size: #{$value}rem;
+    } @else if $property-name == "height" {
+      line-height: $value;
+    } @else if $property-name == "weight" {
+      font-weight: $value;
+    } @else if $property-name == "family" {
+      font-family: $value;
+    } @else if $property-name == "first-letter" {
+      &::first-letter {
+        text-transform: $value;
+      }
+    } @else {
+      #{$property-name}: $value;
+    }
+  }
+}
+
+/// Return a placeholder which respect the $breakpoint
+///
+/// @param $placeholders-suffix string
+/// @param $breakpoint number
+/// @param $properties map of list of map (properties)
+///
+/// @require formatted-font-properties
+///
+@mixin font-placeholder($placeholders-suffix, $breakpoint, $properties) {
+  %font-#{$placeholders-suffix} {
+    @if $breakpoint > 0 {
+      @media (min-width: #{$breakpoint}) {
+        @include formatted-font-properties($properties);
+      }
+    } @else {
+      @include formatted-font-properties($properties);
+    }
+  }
+}
+
+/// Return a list(css) of placeholders for the font
+///
+/// @param $font-placeholders map of elements
+/// @param $font-breakpoints list of numbers
+///
+/// @require font-placeholder
+///
+@mixin build-font-placeholders($font-placeholders, $font-breakpoints) {
+  @each $placeholders-suffix, $font-properties-list in $font-placeholders {
+    $i: 1;
+
+    @if list.length($font-properties-list) > list.length($font-breakpoints) {
+      @warn "The number of fonts responsives map properties is highter than the number of fonts breakpoints, the last ones will be ignored.";
+    }
+
+    @each $breakpoint in $font-breakpoints {
+      @if list.length($font-properties-list) >= $i {
+        $properties: list.nth($font-properties-list, $i);
+        $i: $i + 1;
+
+        @include font-placeholder(
+          $placeholders-suffix,
+          $breakpoint,
+          $properties
+        );
+      }
+    }
+  }
+}
+
+@include build-font-placeholders($font-placeholders, $font-breakpoints);

@@ -21,5 +21,4 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from create-block-telescope-blocks block)");
 /* eslint-enable no-console */

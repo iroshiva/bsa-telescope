@@ -1,0 +1,12 @@
+@use "../utils/variables/structure";
+@import "../../../node_modules/rfs/scss";
+
+.main {
+  @include padding(3.2rem);
+}
+
+@media screen and (max-width: (structure.$tablet-portrait)) {
+  .main {
+    padding: 2rem;
+  }
+}

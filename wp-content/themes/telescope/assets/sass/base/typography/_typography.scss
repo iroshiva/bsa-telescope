@@ -1,0 +1,21 @@
+@use "sass:meta";
+@use "../../utils/variables/colors";
+@use "../../utils/variables/typography";
+@use "../../utils/" as *;
+
+button,
+input,
+select,
+optgroup,
+textarea {
+  @extend %font-sm;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+}
+
+@include meta.load-css("headings");
+// @include meta.load-css("copy");
+// @include meta.load-css("acf-custom-formats");

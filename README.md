@@ -1,33 +1,3 @@
-.sib_signup_box_inside_2 {
-display: flex;
-align-items: center;
-border: 1px solid black;
-border-radius: 30px;
-padding: 1rem;
-width: fit-content;
-}
-
-.field-holder {
-.label {
-position: absolute;
-transform: translateY(-45%);
-top: 50%;
-left: 0;
-color: #6c6c6c;
-/\* padding: 20px;
-}
-
-.input {
-border: none;
-margin: 0;
-}
-}
-
-type="submit" {
-margin: 0;
-border-radius: 20px;
-}
-
 # Template d'installation de wordpress avec composer
 
 # Installation

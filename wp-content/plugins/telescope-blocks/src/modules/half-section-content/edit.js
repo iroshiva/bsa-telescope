@@ -11,11 +11,7 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {
-	useBlockProps,
-	InnerBlocks,
-	useSetting,
-} from "@wordpress/block-editor";
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -38,10 +34,6 @@ export default function Edit({ className, attributes, setAttributes }) {
 
 	setAttributes({ blockClassName: blockProps.className });
 
-	// Liste des blocs autorisés
-	// const ALLOWED_BLOCKS = ["core/paragraph", "core/buttons"];
-
-	// Template de blocs
 	const BASE_TEMPLATE = [
 		[
 			"core/heading",
@@ -74,12 +66,7 @@ export default function Edit({ className, attributes, setAttributes }) {
 
 	return (
 		<div {...blockProps}>
-			<InnerBlocks
-				// allowedBlocks={ALLOWED_BLOCKS}
-				template={BASE_TEMPLATE} // Le template de base
-				// templateLock={false}
-				templateLock="all"
-			/>
+			<InnerBlocks template={BASE_TEMPLATE} templateLock="all" />
 		</div>
 	);
 }

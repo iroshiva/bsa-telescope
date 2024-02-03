@@ -6,7 +6,7 @@
 	"title": "Diaporama d'articles",
 	"category": "telescope",
 	"icon": "format-gallery",
-	"description": "Bloc avec un titre et une section diaporama d'articles",
+	"description": "Section avec un titre et une section diaporama d'articles sous forme de slider",
 	"supports": {
 		"html": false,
 		"jsx": true,
@@ -18,6 +18,14 @@
 		"spacing": {
 			"padding": true,
 			"margin": true
+		},
+		"layout": {
+			"default": {
+				"type": "constrained",
+				"justifyContent": "center",
+				"orientation": "vertical"
+			},
+			"allowVerticalAlignment": false
 		}
 	},
 	"attributes": {

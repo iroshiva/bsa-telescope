@@ -6,4 +6,66 @@
  */
 
 .wp-block-telescope-blocks-newsletter-section {
+	.form__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: 2rem;
+		border: 2px solid var(--wp--preset--color--contrast-medium);
+		border-radius: 40px;
+		padding: 1rem;
+		width: fit-content;
+		padding: 2px 2px 2px 2rem;
+		width: 512px;
+	}
+
+	.field-holder {
+		position: relative;
+		width: 100%;
+
+		.label {
+			color: var(--wp--preset--color--contrast-medium);
+			font-size: var(--wp--preset--font-size--base);
+			position: absolute;
+			transform: translateY(-45%);
+			top: 50%;
+			left: 0;
+			color: var(--wp--preset--color--contrast-medium);
+		}
+
+		.input {
+			font-size: var(--wp--preset--font-size--base);
+			color: var(--wp--preset--color--black);
+
+			border: none;
+			border-radius: 20px;
+
+			&:focus-visible,
+			&:focus {
+				outline: none !important;
+			}
+
+			&:focus + label,
+      // &[value] + label,
+      &:required:user-invalid:not([value=""]) + label,
+      &:required:valid + label {
+				padding: 0 1rem;
+				background-color: var(--wp--preset--color--white);
+				top: -68%;
+				pointer-events: none;
+			}
+		}
+
+		.input {
+			width: 100%;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.wp-block-telescope-blocks-newsletter-section {
+		.form__content {
+			width: 90vw;
+		}
+	}
 }

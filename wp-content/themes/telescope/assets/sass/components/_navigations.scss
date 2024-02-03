@@ -1,0 +1,24 @@
+@use "../utils/variables/colors";
+
+.nav {
+  &-item {
+    &.active {
+      color: colors.$blue;
+      font-weight: 700;
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  &-link {
+    position: relative;
+    &--blank:after {
+      content: "\2197";
+      position: absolute;
+      top: -5px;
+      right: -15px;
+    }
+  }
+}

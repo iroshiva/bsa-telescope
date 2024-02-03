@@ -1,0 +1,100 @@
+@use "../utils/variables/colors";
+@use "../utils/variables/structure";
+@import "../../../node_modules/rfs/scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+
+  border-bottom: 2px solid #f4f4f5;
+
+  &__main {
+    background-color: colors.$white;
+    @include padding(3rem 6.6rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 3.2rem;
+
+    .btn--hamb {
+      display: none;
+    }
+
+    .logo {
+      margin-bottom: 0;
+    }
+
+    .nav {
+      &-items {
+        display: flex;
+        gap: 3.2rem;
+      }
+    }
+  }
+
+  &__resp {
+    display: none;
+  }
+}
+
+@media screen and (max-width: structure.$tablet-landscape) {
+  .header {
+    &__main {
+      padding: 2rem;
+      .btn--hamb {
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        .hamburger--spring {
+          padding: 0;
+        }
+
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+          width: 3.3rem;
+          height: 3px;
+        }
+      }
+
+      .nav {
+        display: none;
+        &-items {
+          display: flex;
+          gap: 3rem;
+        }
+      }
+    }
+
+    &__resp {
+      padding: 3.2rem;
+      position: absolute;
+      left: -100%;
+      content: "";
+      background-color: rgba(255, 255, 255, 0.95);
+      transform: translate3d(-100%, 0, 0);
+      transition: 0.5s all ease-in-out;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 2rem;
+
+      .nav-items {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3.2rem;
+      }
+
+      .nav--right {
+        .nav-link {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

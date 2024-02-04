@@ -59,9 +59,6 @@ export default {
     "core/cover": {
       border: { radius: "20px" },
       spacing: {
-        margin: {
-          bottom: "var(--wp--preset--spacing--84)",
-        },
         padding: {
           top: "167.5px",
           bottom: "167.5px",

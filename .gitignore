@@ -11,6 +11,5 @@ wp-content/themes/*
 !wp-content/plugins
 wp-content/plugins/*
 !wp-content/plugins/telescope-blocks
-!wp-content/uploads
 /wp-config.php
 

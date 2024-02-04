@@ -28,10 +28,13 @@ export default {
       },
     },
     "core/button": {
-      border: { radius: "48px", width: "2px" },
+      border: {
+        radius: "48px",
+        width: "2px",
+      },
       color: {
-        text: "#fff",
-        background: "#1D4ED8",
+        text: "var(--wp--preset--color--white)",
+        background: "var(--wp--preset--color--primary)",
       },
       spacing: {
         padding: {
@@ -44,13 +47,13 @@ export default {
       variations: {
         fill: {
           color: {
-            text: "#fff",
-            background: "#1D4ED8",
+            text: "var(--wp--preset--color--white)",
+            background: "var(--wp--preset--color--primary)",
           },
         },
         outline: {
           color: {
-            text: "#fff",
+            text: "var(--wp--preset--color--white)",
             background: "transparent",
           },
         },

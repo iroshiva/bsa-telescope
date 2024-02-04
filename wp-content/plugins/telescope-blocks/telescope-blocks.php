@@ -29,14 +29,20 @@ require_once plugin_dir_path(__FILE__) . 'src/init.php';
 /**
  * Add Category 'Telescope' to Gutenberg Core Block Category.
  */
-function add_custom_category($categories)
+function custom_block_category($categories)
 {
-	// Add the new category in first place in the inserter.
-	$categories[0] = [
-		'slug' => 'telescope',
+	$custom_block = array(
+		'slug'  => 'telescope',
 		'title' => 'Blocs Telescope',
-	];
+	);
 
-	return $categories;
+	$categories_sorted = array();
+	$categories_sorted[0] = $custom_block;
+
+	foreach ($categories as $category) {
+		$categories_sorted[] = $category;
+	}
+
+	return $categories_sorted;
 }
-add_filter('block_categories_all', 'add_custom_category');
+add_filter('block_categories_all', 'custom_block_category');

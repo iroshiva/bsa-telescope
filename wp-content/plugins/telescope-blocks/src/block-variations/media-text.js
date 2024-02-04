@@ -28,11 +28,15 @@
 	 * New `core/group` block variation.
 	 */
 	const variationsMediaText = {
+		$schema: "https://schemas.wp.org/trunk/block.json",
+		apiVersion: 3,
 		name: "variations-media-text",
+		version: "0.1.0",
 		title: "Variation du block media text",
 		description: __("Variation du bloc media texte", "variations-media-text"),
+		category: "telescope",
 		attributes: {
-			align: "wide",
+			align: "full",
 		},
 		isDefault: false,
 		innerBlocks: CONTENT,

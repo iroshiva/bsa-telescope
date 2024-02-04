@@ -2,13 +2,11 @@
 
 /**
  * Plugin Name:       Telescope Blocks
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       Plugin pour les blocks gutenberg Hero Section / Half Section / Posts Section / Newsletter Section
  * Requires at least: 6.1
- * Requires PHP:      7.0
+ * Requires PHP:      8.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Author:            Weil Jean
  * Text Domain:       telescope-blocks
  *
  * @package           create-block
@@ -27,10 +25,11 @@ require_once plugin_dir_path(__FILE__) . 'src/init.php';
 
 
 /**
- * Add Category Telescope to Gutenberg Core Block Category.
+ * Add Category 'Telescope' to Gutenberg Core Block Category.
  */
 function add_custom_category($categories)
 {
+	// Add the new category in first place in the inserter.
 	$categories[0] = [
 		'slug' => 'telescope',
 		'title' => 'Blocs Telescope',
@@ -39,26 +38,3 @@ function add_custom_category($categories)
 	return $categories;
 }
 add_filter('block_categories_all', 'add_custom_category');
-
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-// function telescope_blocks_telescope_blocks_block_init()
-// {
-// 	register_block_type(__DIR__ . '/build/1-test/');
-// }
-// add_action('init', 'telescope_blocks_telescope_blocks_block_init');
-function block_variation_example_enqueue()
-{
-	wp_enqueue_script(
-		'variation-media-text-script',
-		plugins_url('src/block-variations/media-text.js', __FILE__),
-		array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
-		true
-	);
-}
-add_action('enqueue_block_editor_assets', 'block_variation_example_enqueue');

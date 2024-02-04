@@ -1,28 +1,32 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "telescope-blocks/half-section-content",
+	"name": "telescope-blocks/half-section",
 	"version": "0.1.0",
-	"title": "Contenu de la section half",
+	"title": "Half Section",
 	"category": "telescope",
-	"parent": ["telescope-blocks/variations-media-text"],
-	"icon": "editor-paste-text",
-	"description": "Permet de remplir le contenu d'une section Half",
+	"icon": "cover-image",
+	"description": "En-tête de page",
 	"supports": {
 		"html": false,
 		"jsx": true,
-		"alignVertical": true,
-		"alignJustify": true,
+		"align": ["full", "wide"],
 		"layout": {
 			"default": {
-				"type": "flex",
+				"type": "constrained",
 				"justifyContent": "center",
 				"orientation": "vertical"
 			},
 			"allowVerticalAlignment": false
 		}
 	},
-	"keywords": ["contenu", "half"],
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		}
+	},
+	"keywords": ["hero", "en-tête"],
 	"textdomain": "telescope-blocks",
 	"example": {
 		"attributes": {

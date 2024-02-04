@@ -29,49 +29,24 @@ import "./editor.scss";
  *
  * @return {Element} Element to render.
  */
-export default function Edit({ className, attributes, setAttributes }) {
+export default function Edit(props) {
 	const blockProps = useBlockProps();
-
-	setAttributes({ blockClassName: blockProps.className });
-
-	const ALLOWED_BLOCKS = ["core/paragraph"];
 
 	const BASE_TEMPLATE = [
 		[
-			"core/heading",
+			"core/media-text",
 			{
-				level: 2,
-				content: "Mon titre",
-				placeholder: "Mon titre",
-				textAlign: "center",
-				lock: { move: true, remove: true },
+				align: "full",
 			},
-		],
-		[
-			"core/buttons",
-			{
-				align: "center",
-				layout: { type: "flex", justifyContent: "center" },
-				lock: { move: true, remove: false },
-			},
-			[
-				[
-					"core/button",
-					{
-						placeholder: "Texte du bouton",
-						text: "Texte du bouton",
-					},
-				],
-			],
+			[["telescope-blocks/half-section-content"]],
 		],
 	];
 
 	return (
 		<div {...blockProps}>
 			<InnerBlocks
-				allowedBlocks={ALLOWED_BLOCKS}
-				template={BASE_TEMPLATE}
-				templateLock={false}
+				template={BASE_TEMPLATE} // Le template de base
+				templateLock="all" // Empêcher l'ajout de nouveaux blocs
 			/>
 		</div>
 	);

@@ -23,11 +23,10 @@ add_action('init', 'block_slider_posts_init');
 function block_slider_posts_render(array $attributes)
 {
   $blockClassName = $attributes['blockClassName'];
-
   $query_args = array(
     'post_type'     => 'post',
     'posts_per_page'   => $attributes['postperpage'],
-    'orderby'       => 'title',
+    'orderby'       => 'date',
     'order'         => $attributes['order'],
   );
   $recents_post_query = new WP_Query($query_args);

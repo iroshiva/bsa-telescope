@@ -53,9 +53,11 @@ export default function Edit({ attributes, setAttributes }) {
 		(select) => {
 			return select("core").getEntityRecords("postType", "post", {
 				per_page: attributes.postperpage,
+				orderby: "date",
+				order: attributes.order,
 			});
 		},
-		[attributes.postperpage],
+		[attributes.postperpage, attributes.order],
 	);
 
 	const displayPostDate = (postDate) => {
@@ -84,10 +86,10 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Ordre"
 						value={attributes.order}
 						options={[
-							{ label: "Croissant", value: "ASC" },
-							{ label: "Décroissant", value: "DESC" },
+							{ label: "Croissant", value: "asc" },
+							{ label: "Décroissant", value: "desc" },
 						]}
-						onChange={(value) => setAttributes({ Order: value })}
+						onChange={(value) => setAttributes({ order: value })}
 					/>
 				</PanelBody>
 				<PanelBody title={"Excerpt de l'article"}>

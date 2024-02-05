@@ -29,7 +29,7 @@
 		},
 		"order": {
 			"type": "string",
-			"default": "ASC"
+			"default": "asc"
 		},
 		"postdate": {
 			"type": "boolean",
